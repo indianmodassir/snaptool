@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Snap Tool",
+  "description": "Easily capture specific parts of any website by selecting the area you want.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "html2canvas.js",
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sound/capture.mp3",
+        "icon/st-48x48.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "32": "icon/st-32x32.png",
+    "48": "icon/st-48x48.png",
+    "128": "icon/st-128x128.png",
+    "192": "icon/st-192x192.png"
+  }
+}
